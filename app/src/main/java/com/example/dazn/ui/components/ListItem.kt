@@ -64,7 +64,7 @@ private fun Image(url: String) {
         modifier = Modifier.fillMaxHeight(),
         model = url,
         contentDescription = null,
-        placeholder =painterResource(id = R.drawable.ic_downloading),
+        placeholder = painterResource(id = R.drawable.ic_downloading),
         error = painterResource(id = R.drawable.image_error),
     )
 }

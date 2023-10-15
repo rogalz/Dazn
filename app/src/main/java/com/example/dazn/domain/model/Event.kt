@@ -17,7 +17,7 @@ fun EventDto.toDomain(): Event {
         id = id ?: "",
         title = title ?: "",
         subtitle = subtitle ?: "",
-        date = ZonedDateTime.parse( date ?: ""),
+        date = ZonedDateTime.parse(date ?: ""),
         imageUrl = imageUrl ?: "",
         videoUrl = videoUrl ?: "",
     )

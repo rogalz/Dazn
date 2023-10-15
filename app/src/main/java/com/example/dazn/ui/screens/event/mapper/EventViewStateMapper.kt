@@ -11,7 +11,7 @@ class EventViewStateMapper(
 
     fun map(events: List<Event>): EventsScreenViewState.Success {
 
-        val eventsViewStateList = events.sortedBy {it.date }.map { event ->
+        val eventsViewStateList = events.sortedBy { it.date }.map { event ->
             ListItemViewState(
                 event.imageUrl,
                 event.title,

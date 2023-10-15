@@ -9,5 +9,6 @@ import com.example.dazn.R
 
 sealed class Screen(val route: String, @StringRes val resourceId: Int, val image: ImageVector) {
     data object Events : Screen("events", R.string.events_screen_name, Icons.Filled.List)
-    data object Schedules : Screen("schedules", R.string.schedules_screen_name, Icons.Filled.DateRange)
+    data object Schedules :
+        Screen("schedules", R.string.schedules_screen_name, Icons.Filled.DateRange)
 }

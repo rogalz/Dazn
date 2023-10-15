@@ -18,7 +18,7 @@ class DanzRepository(
         return api.getSchedules().mapToResult { it.toDomain() }
     }
 
-    private fun <T, G> Response<List<T>>.mapToResult( map: (it: T) -> G): Result<List<G>> {
+    private fun <T, G> Response<List<T>>.mapToResult(map: (it: T) -> G): Result<List<G>> {
         return if (this.isSuccessful && !this.body().isNullOrEmpty())
             Result.success(this.body()!!.map { map.invoke(it) })
         else {

@@ -1,6 +1,7 @@
 package com.example.dazn.ui.components
 
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -25,13 +26,17 @@ import com.example.dazn.R
 import com.example.dazn.ui.theme.Typography
 
 @Composable
-fun ListItem(viewState: ListItemViewState) {
+fun ListItem(
+    viewState: ListItemViewState,
+    onItemClicked: (videoUrl: String) -> Unit = {}
+) {
     Row(
         Modifier
             .height(72.dp)
             .fillMaxWidth()
             .background(Color.Black.copy(alpha = 0.06f), shape = RoundedCornerShape(8.dp))
             .padding(8.dp)
+            .clickable { viewState.videoUrl?.let { onItemClicked.invoke(it) } }
     ) {
         Image(viewState.imageUrl)
         Spacer(modifier = Modifier.width(16.dp))

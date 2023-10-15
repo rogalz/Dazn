@@ -1,30 +1,26 @@
-package com.example.dazn.ui.event.mapper
+package com.example.dazn.ui.screens.event.mapper
 
 import com.example.dazn.domain.model.Event
 import com.example.dazn.ui.components.ListItemViewState
-import com.example.dazn.ui.event.EventsScreenViewState
+import com.example.dazn.ui.screens.event.EventsScreenViewState
+import com.example.dazn.ui.utils.TimeFormatter
 
-class EventViewStateMapper {
+class EventViewStateMapper(
+    private val timeFormatter: TimeFormatter
+) {
 
     fun map(events: List<Event>): EventsScreenViewState.Success {
 
-
-
-        val eventsViewStateList = events.map { event ->
+        val eventsViewStateList = events.sortedBy {it.date }.map { event ->
             ListItemViewState(
                 event.imageUrl,
                 event.title,
                 event.subtitle,
-                event.date,
+                timeFormatter.format(event.date),
                 event.videoUrl
             )
         }
+
         return EventsScreenViewState.Success(eventsViewStateList)
     }
 }
-
-/*
-
-- ordered by date in ascending order
-* Today, 10:30; Yesterday 10:30; 10.02.2019
- */

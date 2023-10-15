@@ -1,9 +1,9 @@
-package com.example.dazn.ui.schedule
+package com.example.dazn.ui.screens.schedule
 
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.lifecycle.viewmodel.compose.viewModel
-import com.example.dazn.ui.schedule.vw.SchedulesViewModel
+import com.example.dazn.ui.screens.schedule.vw.SchedulesViewModel
 
 @Composable
 fun SchedulesScreen() {

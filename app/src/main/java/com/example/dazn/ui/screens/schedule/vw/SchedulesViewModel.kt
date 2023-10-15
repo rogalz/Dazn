@@ -1,4 +1,4 @@
-package com.example.dazn.ui.schedule.vw
+package com.example.dazn.ui.screens.schedule.vw
 
 import android.util.Log
 import androidx.lifecycle.ViewModel
@@ -25,3 +25,14 @@ class SchedulesViewModel(
 
     }
 }
+
+
+/*
+
+//todo
+Schedules
+- shcedule for tommorrow only,
+- auto-refresh 30 sec,
+- update the list without loosing scroll ps and blinks,
+- ordered by date in ascending order
+ */

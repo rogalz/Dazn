@@ -1,10 +1,10 @@
-package com.example.dazn.ui.event.vm
+package com.example.dazn.ui.screens.event.vm
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.dazn.domain.usecase.GetEventsUseCase
-import com.example.dazn.ui.event.EventsScreenViewState
-import com.example.dazn.ui.event.mapper.EventViewStateMapper
+import com.example.dazn.ui.screens.event.EventsScreenViewState
+import com.example.dazn.ui.screens.event.mapper.EventViewStateMapper
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
@@ -32,11 +32,3 @@ class EventsViewModel(
         }
     }
 }
-
-/*
-Schedules
-- shcedule for tommorrow only,
-- auto-refresh 30 sec,
-- update the list without loosing scroll ps and blinks,
-- ordered by date in ascending order
- */

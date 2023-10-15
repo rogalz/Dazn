@@ -4,4 +4,7 @@
     <string name="schedules_screen_name">SCHEDULES</string>
     <string name="error_message">Something went wrong</string>
     <string name="try_again">Try again</string>
+    <string name="today">Today\u0020</string>
+    <string name="tomorrow">Tomorrow\u0020</string>
+    <string name="yesterday">Yesterday\u0020</string>
 </resources>

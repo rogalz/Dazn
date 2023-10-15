@@ -21,13 +21,10 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
-import com.example.dazn.ui.event.EventsScreen
-import com.example.dazn.ui.event.vm.EventsViewModel
 import com.example.dazn.ui.navigation.Screen
-import com.example.dazn.ui.schedule.SchedulesScreen
-import com.example.dazn.ui.schedule.vw.SchedulesViewModel
+import com.example.dazn.ui.screens.event.EventsScreen
+import com.example.dazn.ui.screens.schedule.SchedulesScreen
 import com.example.dazn.ui.theme.DAZNTheme
-import org.koin.androidx.viewmodel.ext.android.viewModel
 
 @OptIn(ExperimentalMaterial3Api::class)
 

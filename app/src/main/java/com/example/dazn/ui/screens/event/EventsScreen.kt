@@ -1,4 +1,4 @@
-package com.example.dazn.ui.event
+package com.example.dazn.ui.screens.event
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement
@@ -18,7 +18,6 @@ import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
@@ -26,7 +25,7 @@ import androidx.compose.ui.unit.dp
 import com.example.dazn.R
 import com.example.dazn.ui.components.ListItem
 import com.example.dazn.ui.components.ListItemViewState
-import com.example.dazn.ui.event.vm.EventsViewModel
+import com.example.dazn.ui.screens.event.vm.EventsViewModel
 import org.koin.androidx.compose.koinViewModel
 
 @Composable
@@ -117,28 +116,4 @@ private fun EventScreenError() {
     Surface {
         Error {/* no-op */ }
     }
-}
-
-@Composable
-fun VideoPlayer() {
-    // This is the official way to access current context from Composable functions
-    val context = LocalContext.current
-    // Do not recreate the player everytime this Composable commits
-//    val exoPlayer = remember(context) {
-//
-////        ExoPlayer.Builder(context).build().apply {
-////
-////            val source = ProgressiveMediaSource.Factory(DefaultDataSource.Factory(context))
-////                .createMediaSource(
-////                    MediaItem.Builder()
-////                        .setUri(
-////                            Uri.parse("https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4")
-////                        ).build()
-////                )
-////
-////            this.prepare(source)
-////        }
-//    }
-
-
 }

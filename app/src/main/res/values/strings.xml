@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">DAZN</string>
+    <string name="events_screen_name">EVENTS</string>
+    <string name="schedules_screen_name">SCHEDULES</string>
+    <string name="error_message">Something went wrong</string>
+    <string name="try_again">Try again</string>
 </resources>

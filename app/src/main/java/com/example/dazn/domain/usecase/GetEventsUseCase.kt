@@ -8,8 +8,6 @@ class GetEventsUseCase(
 ) {
 
     suspend fun execute(): Result<List<Event>> = Result.runCatching {
-
-        val response = repo.getEvents()
-        return Result.success(emptyList())
+        return repo.getEvents()
     }
 }

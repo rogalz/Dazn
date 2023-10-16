@@ -6,6 +6,8 @@ import com.example.dazn.domain.usecase.GetSchedulesUseCase
 import com.example.dazn.ui.screens.schedule.SchedulesScreenViewState
 import com.example.dazn.ui.screens.schedule.mapper.ScheduleViewStateMapper
 import com.example.dazn.ui.utils.isTomorrow
+import kotlinx.coroutines.CoroutineDispatcher
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
@@ -16,7 +18,8 @@ import java.time.ZonedDateTime
 
 class SchedulesViewModel(
     private val getSchedulesUseCase: GetSchedulesUseCase,
-    private val mapper: ScheduleViewStateMapper
+    private val mapper: ScheduleViewStateMapper,
+    private val dispatcher: CoroutineDispatcher = Dispatchers.Default
 ) : ViewModel() {
 
     private val _uiState =
@@ -24,7 +27,7 @@ class SchedulesViewModel(
     val uiState: StateFlow<SchedulesScreenViewState> = _uiState.asStateFlow()
 
     init {
-        viewModelScope.launch {
+        viewModelScope.launch(dispatcher) {
             repeat(Int.MAX_VALUE) {
                 getSchedules()
                 delay(THIRTY_SECOND_IN_MILLIS)
@@ -32,16 +35,14 @@ class SchedulesViewModel(
         }
     }
 
-    private fun getSchedules() {
+    private suspend fun getSchedules() {
         val now = ZonedDateTime.now()
-        viewModelScope.launch {
-            getSchedulesUseCase.execute()
-                .onSuccess { schedules ->
-                    val onlyForTomorrow = schedules.filter { it.date.isTomorrow(now) }
-                    _uiState.update { mapper.map(onlyForTomorrow) }
-                }
-                .onFailure { _uiState.update { SchedulesScreenViewState.Error } }
-        }
+        getSchedulesUseCase.execute()
+            .onSuccess { schedules ->
+                val onlyForTomorrow = schedules.filter { it.date.isTomorrow(now) }
+                _uiState.update { mapper.map(onlyForTomorrow) }
+            }
+            .onFailure { _uiState.update { SchedulesScreenViewState.Error } }
     }
 
     companion object {

@@ -28,7 +28,7 @@ import com.example.dazn.ui.theme.Typography
 @Composable
 fun ListItem(
     viewState: ListItemViewState,
-    onItemClicked: (videoUrl: String) -> Unit = {}
+    onItemClicked: ((videoUrl: String) -> Unit)? = null
 ) {
     Row(
         Modifier
@@ -36,7 +36,7 @@ fun ListItem(
             .fillMaxWidth()
             .background(Color.Black.copy(alpha = 0.06f), shape = RoundedCornerShape(8.dp))
             .padding(8.dp)
-            .clickable { viewState.videoUrl?.let { onItemClicked.invoke(it) } }
+            .clickable(onItemClicked != null) { viewState.videoUrl?.let { onItemClicked?.invoke(it) } }
     ) {
         Image(viewState.imageUrl)
         Spacer(modifier = Modifier.width(16.dp))

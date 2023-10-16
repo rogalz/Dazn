@@ -50,7 +50,7 @@ android {
     tasks.withType<Test> {
         useJUnitPlatform()
     }
-
+    testOptions.unitTests.isReturnDefaultValues = true
 }
 
 dependencies {

@@ -16,4 +16,5 @@ class DaznApplication : Application() {
             modules(dataModule, domainModule, uiModule)
         }
     }
+
 }
